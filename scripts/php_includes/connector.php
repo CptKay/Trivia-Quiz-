@@ -13,7 +13,16 @@ try {
   // $dbConn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
   // set the PDO error mode to exception
   $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+  echo "<header>
+  <!-- Fixed navbar -->
+  <nav class='navbar navbar-expand-md navbar-dark fixed-top bg-dark'>
+    <div class='container-fluid'>
+      <h5 class='mt-0 text-light'>Trivia Quiz</h5>
+      <div class='collapse navbar-collapse' id='navbarCollapse'>
+      </div>
+    </div>
+  </nav>
+</header>";
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -29,14 +38,14 @@ function fetchQuestionById($id, $dbConn) {
 
   return $row;
 };
-function fetchAnswerById($id, $dbConn) {
-
-  $sqlQuery=$dbConn->query("SELECT id,answers FROM `answers` WHERE `id` = $id");
-    $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
-
+function fetchAnswerById($selectAnswers,$currentQuestionIndex, $dbConn) {
+  $answers = fetchAnswerById($selectAnswers,$currentQuestionIndex, $dbConn);
+  $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
+  $selectAnswers->bindValue(1, $currentQuestionIndex["id"]);                 
+  $selectAnswers->execute(); 
    // print_r($row);
 
-  return $row;
+  return  $selectAnswers;
 };
 
 function fetchQuestionIdSeq($topic, $questionNum, $dbConn) {

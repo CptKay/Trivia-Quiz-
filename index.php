@@ -72,7 +72,7 @@ include "./scripts/php_includes/data-collector.php";
 
             <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
             <input type="hidden" id="indexStep" name="indexStep" value="1">
-            <input class="btn btn-info mt-5 bg-success text-white" type="submit" value="Start">
+            <input class="btn btn-info mt-5 bg-success" type="submit" value="Start">
           </div>
       </div>
     </div>
