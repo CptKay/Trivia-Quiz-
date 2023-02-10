@@ -154,7 +154,7 @@ $question = fetchQuestionById($id, $dbConn);
 
   <?php
 
-$correct = $question["correct"];
+/* $correct = $question["is_correct"];
 
   for ($a = 1; $a <= 5; $a++) {
 
@@ -174,9 +174,46 @@ $correct = $question["correct"];
     <label class='form-check-label' for='single-choice-0'>$answerText</label>
   </div>";
   }
-};
+}; */
 
-    
+   // prepare and execute the select statements
+   $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
+   $selectAnswers->bindValue(1, $question["id"]);                 
+   $selectAnswers->execute();                 
+
+   if ($question["type"] == "MULTIPLE") {
+       
+       // display checkboxes buttons for answers to questions with MULTIPLE answers
+       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+           /*
+           print "<pre>"; 
+           print_r($answer); 
+           print "</pre>"; 
+           */
+
+           // print html checkbox for each answer                    
+           echo '<div class="form-check">';                         
+               echo '<input class="form-check-input" type="checkbox">'; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
+           echo '</div>';                                                     
+       }
+   } else {
+       // display radio buttons for answers to questions with one SINGLE answer
+       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+           
+           /*
+           print "<pre>"; 
+           print_r($answer); 
+           print "</pre>"; 
+           */
+           
+           // print html radio button for each answer   
+           echo '<div class="form-check">';                                                  
+               echo '<input class="form-check-input" type="radio">'; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
+           echo '</div>';                             
+       }    
+   } 
 
     
     ?> 
