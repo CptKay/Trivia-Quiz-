@@ -115,7 +115,7 @@
 
   <form id="quiz" action="questions.php" method="post"  class="md">
 
-  <select class="form-select" aria-label="Select category" name="topic">
+  <!-- <select class="form-select" aria-label="Select category" name="topic">
   <option selected>Select category</option>
   <option value="gen-knowledge">General Knowledge</option>
   <option value="technology">Technology</option>
@@ -130,7 +130,7 @@
   <option value="movies">Movies</option>
   <option value="ch-norris">Chuck norris</option>
   <option value="d-n-d">Dungeons and Dragons</option>  
-</select>
+</select> -->
 
 <select class="form-select" aria-label="Select category" name="topic">
   <option selected>Select category</option>
