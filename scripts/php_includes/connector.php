@@ -29,6 +29,15 @@ function fetchQuestionById($id, $dbConn) {
 
   return $row;
 };
+function fetchAnswerById($id, $dbConn) {
+
+  $sqlQuery=$dbConn->query("SELECT id,answers FROM `answers` WHERE `id` = $id");
+    $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
+
+   // print_r($row);
+
+  return $row;
+};
 
 function fetchQuestionIdSeq($topic, $questionNum, $dbConn) {
   $query = "SELECT `id` FROM `questions` WHERE `topic` = '$topic' ORDER BY RAND() LIMIT $questionNum";
