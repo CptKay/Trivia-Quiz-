@@ -87,12 +87,6 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100 bg-info">
-
-    <?php
-    echo "Hello, we are starting to work with Databases and PHP PDO!"; 
-?>
-
-
     
 <header>
 <?php 
@@ -104,20 +98,10 @@ if (isset($quiz["questionIdSequence"])) {
 }
 
 
-/* $i= intval($_POST["questLastInd"])+1;
-$id = $quiz["questionIdSequence"]["$i"]; */
+// Frage auslesen
 
 $question = fetchQuestionById($id, $dbConn);
-
-
-
-
-
-
-// $question = fetchQuestionById($id, $dbConn);
-
-
-    // Frage auslesen
+    
     ?>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
