@@ -34,7 +34,7 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
     
   </head>
-  <body class="d-flex flex-column h-100 bg-info">
+  <body class="d-flex flex-column h-100" style="background-color: #D7FDEC">
 
     
 
@@ -51,79 +51,18 @@
   </nav>
 </header>
 
-<!-- Begin page content -->
-
-
+    <!-- Begin page content -->
 <main class="flex-shrink-0">
-
-  <div class="">
-
-  <h1 class="mt-5">Trivia Quiz</h1>
-
-  <form id="quiz" action="questions.php" method="post"  class="md">
-
-  <!-- <select class="form-select" aria-label="Select category" name="topic">
-  <option selected>Select category</option>
-  <option value="gen-knowledge">General Knowledge</option>
-  <option value="technology">Technology</option>
-  <option value="astronautics">Astronautics</option>
-  <option value="science">Science</option>
-  <option value="informatics">Informatics</option>
-  <option value="ai">Artificial Intelligence</option>
-  <option value="geography">Geography</option>
-  <option value="animals">Animals</option>
-  <option value="sports">Sports</option>
-  <option value="music">music</option>
-  <option value="movies">Movies</option>
-  <option value="ch-norris">Chuck norris</option>
-  <option value="d-n-d">Dungeons and Dragons</option>  
-</select> -->
-
-<select class="form-select" aria-label="Select category" name="topic">
-  <option selected>Select category</option>
-<?
-/* $question = fetchQuestionById($id, $dbConn);
-
-    $sql = 'SHOW COLUMNS FROM '.$table_name.' WHERE field="'.$column_name.'"';
-    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
-prettyPrint($quiz);
-*/
-
-$sqlQuery=$dbConn->query("SELECT `topic` FROM `questions`");
-    $row = $sqlQuery->fetchAll(PDO::FETCH_UNIQUE);
-
-   // print_r($row);
-
-   foreach($row as $key => $option) {
-    // print_r($key);
-              print("<option value='$key'>$key</option>");
-          }
-          ?>
-   
-
-
-</select>
-
-    
-<!-- Anzahl Fragen-->
-<div>
-<label style="margin-top:20px;" for="questionNum" class="form-label"> Number of questions</label>
-<input style="width:100px;" type="number" class="form-control" id="questionNum" name="questionNum" min="5" max="40" value="10">
-
-<input type="hidden" id="questLastInd" name="questLastInd" value="-1">
-<input type="hidden" id="indexStep" name="indexStep" value="1">
+    <div class="container h-50">
+       <figure>
+  <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
+  <figcaption class="figure-caption text-center"></figcaption>
+</figure>
 </div>
-</div>
-
-<input class="btn btn-info" type="submit" value="Start">
-
-</form>
-
-  </div>
-
-  
 </main>
-
+<div class="col-md-12 text-center">
+            <a type="button" class="btn btn-primary btn-lg mb-5" href="index.php">Start</a>
+</div>
 <footer class="footer mt-auto py-3 bg-light">
   <div class="container">
 
