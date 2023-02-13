@@ -11,7 +11,7 @@
     <meta name="generator" content="Hugo 0.104.2">
     <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
-    <script src="scripts/js/main.js"></script>
+    
     
 
     

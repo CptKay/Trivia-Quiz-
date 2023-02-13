@@ -4,11 +4,11 @@ session_start();
 
     include "tools.php";
     include "connector.php";
-       
-   
-echo "hallo";
+    ?>
 
+<script src="scripts/js/main.js"></script>
 
+<?php
 
 if (isset($_SESSION["quiz"])) $quiz=$_SESSION["quiz"];
 else $quiz = NULL;
