@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+    <title>Trivia Quiz</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
 
@@ -115,7 +115,7 @@
 
   <form id="quiz" action="questions.php" method="post"  class="md">
 
-  <select class="form-select" aria-label="Select category" name="topic">
+  <!-- <select class="form-select" aria-label="Select category" name="topic">
   <option selected>Select category</option>
   <option value="gen-knowledge">General Knowledge</option>
   <option value="technology">Technology</option>
@@ -130,7 +130,33 @@
   <option value="movies">Movies</option>
   <option value="ch-norris">Chuck norris</option>
   <option value="d-n-d">Dungeons and Dragons</option>  
+</select> -->
+
+<select class="form-select" aria-label="Select category" name="topic">
+  <option selected>Select category</option>
+<?
+/* $question = fetchQuestionById($id, $dbConn);
+
+    $sql = 'SHOW COLUMNS FROM '.$table_name.' WHERE field="'.$column_name.'"';
+    $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+prettyPrint($quiz);
+*/
+
+$sqlQuery=$dbConn->query("SELECT `topic` FROM `questions`");
+    $row = $sqlQuery->fetchAll(PDO::FETCH_UNIQUE);
+
+   // print_r($row);
+
+   foreach($row as $key => $option) {
+    // print_r($key);
+              print("<option value='$key'>$key</option>");
+          }
+          ?>
+   
+
+
 </select>
+
     
 <!-- Anzahl Fragen-->
 <div>
@@ -159,6 +185,6 @@
 </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  
+    
   </body>
 </html>
