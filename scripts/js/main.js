@@ -1,7 +1,7 @@
 function validateForm() {
     // Check if a radio button or checkbox is selected
     var selected = false;
-    var radioButtons = document.getElementsByName("answerOption");
+    var radioButtons = document.getElementsByName("single-choice");
     for (var i = 0; i < radioButtons.length; i++) {
       if (radioButtons[i].checked) {
         selected = true;
