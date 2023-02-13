@@ -33,6 +33,7 @@ function fetchAnswerById($id, $dbConn) {
 
   $sqlQuery=$dbConn->query("SELECT id,answers FROM `answers` WHERE `id` = $id");
     $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
+   
 
    // print_r($row);
 

@@ -102,13 +102,9 @@ $question = fetchQuestionById($id, $dbConn);
 
   <?php
 
-/* $correct = $question["is_correct"];
+ 
 
-  for ($a = 1; $a <= 5; $a++) {
-
-    $answerColName = "answer-" . $a;
-
-
+/*
     
 
     if(isset($question[$answerColName])&&$question[$answerColName] !== ''){
@@ -128,6 +124,12 @@ $question = fetchQuestionById($id, $dbConn);
    $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
    $selectAnswers->bindValue(1, $question["id"]);                 
    $selectAnswers->execute();                 
+  /* $answers=$dbConn->query("SELECT is_correct FROM `answers`"); 
+   $correct = $answers; */
+
+  /*  for ($a = 1; $a <= 5; $a++) {
+ 
+     $answerColName = "answers" . $a; */
 
    if ($question["type"] == "MULTIPLE") {
        
@@ -162,7 +164,7 @@ $question = fetchQuestionById($id, $dbConn);
            echo '</div>';                             
        }    
    } 
-
+  
     
     ?> 
   
