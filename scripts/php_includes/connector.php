@@ -1,5 +1,17 @@
 <?php
 
+/* $host = '185.254.96.204';
+$port = '3336';
+$dbname = 'db_blue';
+$username = 'winx';
+$password = 'opportunity';
+
+try {
+  $dbConn = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);
+  $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $pe) {
+    die("Konnte nicht mit der Datenbank $dbname verbinden:" . $pe->getMessage());
+} */ 
 
 
 $dbHost = getEnv('DB_HOST');
