@@ -1,0 +1,1 @@
+<?php echo $totalPoints ?> of <?php echo $maxPoints ?> points! or <?php echo $totalPoints_100 ?>%

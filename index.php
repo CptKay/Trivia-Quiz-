@@ -3,7 +3,6 @@ include "./scripts/php_includes/data-collector.php";
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,16 +10,9 @@ include "./scripts/php_includes/data-collector.php";
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.104.2">
   <title>Trivia Quiz</title>
-
   <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
-
-
-
-
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
   <!-- Favicons -->
   <link rel="apple-touch-icon" href="/docs/5.2/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
   <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -30,13 +22,9 @@ include "./scripts/php_includes/data-collector.php";
   <link rel="icon" href="/docs/5.2/assets/img/favicons/favicon.ico">
   <meta name="theme-color" content="#712cf9">
   <link rel="stylesheet" href="css/style.css">
-
-
   <!-- Custom styles for this template -->
   <link href="css/sticky-footer-navbar.css" rel="stylesheet">
-
 </head>
-
 <body class="d-flex flex-column h-100" style="background-color: #D7FDEC">
   <header>
     <!-- Fixed navbar -->
@@ -107,5 +95,4 @@ include "./scripts/php_includes/data-collector.php";
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
