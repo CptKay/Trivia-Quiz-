@@ -102,7 +102,14 @@ $question = fetchQuestionById($id, $dbConn);
 
   <?php
 
-/*
+ $correct = $answer["is_correct"] = 1;
+
+  /*
+  for ($a = 1; $a <= 5; $a++) {
+
+    $answerColName = "answer-" . $a;
+
+
     
 
     if(isset($question[$answerColName])&&$question[$answerColName] !== ''){
@@ -136,7 +143,7 @@ $question = fetchQuestionById($id, $dbConn);
 
            // print html checkbox for each answer                    
            echo '<div class="form-check">';                         
-               echo '<input class="form-check-input" type="checkbox">'; 
+               echo '<input class="form-check-input" type="checkbox"  name="multiple-choice" id= ". $answer["id"] ." value=". $answer["is_correct"] .">'; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
            echo '</div>';                                                     
        }
@@ -152,6 +159,11 @@ $question = fetchQuestionById($id, $dbConn);
            
            // print html radio button for each answer   
            echo '<div class="form-check">';                                                  
+               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
+           echo '</div>';                             
+       }    
+   } 
 
     
     ?> 
@@ -173,7 +185,6 @@ $question = fetchQuestionById($id, $dbConn);
 
 
 </form>
-
 
   </div>
 
