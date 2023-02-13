@@ -53,8 +53,10 @@ include "./scripts/php_includes/data-collector.php";
     <div class="">
       <h1 class="mt-5">Trivia Quiz</h1>
       <form id="quiz" action="questions.php" method="post" class="md">
-        <select class="form-select" aria-label="Select category" name="topic">
-          <option selected>Select category</option>
+      <div class="col-md-12 text-center">
+        <div class="col-md-12 text-center">Category</div>
+        <select style="width:130px;" class="form-select text-center" aria-label="Select category" name="topic">
+          <option selected>Select</option>
           <?
           /* $question = fetchQuestionById($id, $dbConn);
           $sql = 'SHOW COLUMNS FROM '.$table_name.' WHERE field="'.$column_name.'"';
@@ -76,10 +78,11 @@ include "./scripts/php_includes/data-collector.php";
         <!-- Anzahl Fragen-->
         <div>
           <label style="margin-top:20px;" for="questionNum" class="form-label"> Number of questions</label>
-          <input style="width:100px;" type="number" class="form-control" id="questionNum" name="questionNum" min="5"
+          <input style="width:130px;" type="number" class="form-control text-center" id="questionNum" name="questionNum" min="5"
             max="40" value="10">
           <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
           <input type="hidden" id="indexStep" name="indexStep" value="1">
+          </div>
           <div class="container h-50">
             <figure>
               <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
