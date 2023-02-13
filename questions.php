@@ -10,9 +10,8 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
     <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
-
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
-
+    
     
 
     
@@ -35,7 +34,8 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100 bg-info">
-    
+  
+
 <header>
 <?php 
 
@@ -98,11 +98,19 @@ $question = fetchQuestionById($id, $dbConn);
 <p><h7>Your answer:</h7></p>
     </div>
 
-  <form action="<?php echo $link; ?>" method="post">
+ 
+  <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
 
   <?php
 
-/*
+ $correct = $answer["is_correct"] = 1;
+
+  /*
+  for ($a = 1; $a <= 5; $a++) {
+
+    $answerColName = "answer-" . $a;
+
+
     
 
     if(isset($question[$answerColName])&&$question[$answerColName] !== ''){
@@ -136,7 +144,7 @@ $question = fetchQuestionById($id, $dbConn);
 
            // print html checkbox for each answer                    
            echo '<div class="form-check">';                         
-               echo '<input class="form-check-input" type="checkbox">'; 
+               echo '<input class="form-check-input" type="checkbox"  name="multiple-choice" id= ". $answer["id"] ." value=". $answer["is_correct"] .">'; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
            echo '</div>';                                                     
        }
@@ -152,6 +160,11 @@ $question = fetchQuestionById($id, $dbConn);
            
            // print html radio button for each answer   
            echo '<div class="form-check">';                                                  
+               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
+           echo '</div>';                             
+       }    
+   } 
 
     
     ?> 
@@ -173,7 +186,6 @@ $question = fetchQuestionById($id, $dbConn);
 
 
 </form>
-
 
   </div>
 
