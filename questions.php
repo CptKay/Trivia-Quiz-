@@ -102,8 +102,6 @@ $question = fetchQuestionById($id, $dbConn);
 
   <?php
 
- 
-
 /*
     
 
@@ -124,12 +122,7 @@ $question = fetchQuestionById($id, $dbConn);
    $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
    $selectAnswers->bindValue(1, $question["id"]);                 
    $selectAnswers->execute();                 
-  /* $answers=$dbConn->query("SELECT is_correct FROM `answers`"); 
-   $correct = $answers; */
 
-  /*  for ($a = 1; $a <= 5; $a++) {
- 
-     $answerColName = "answers" . $a; */
 
    if ($question["type"] == "MULTIPLE") {
        
@@ -159,12 +152,7 @@ $question = fetchQuestionById($id, $dbConn);
            
            // print html radio button for each answer   
            echo '<div class="form-check">';                                                  
-               echo '<input class="form-check-input" type="radio" name="single-choice">'; 
-               echo '<label class="form-check-label" for="single-choice">' . $answer["answers"] . '</label><br>';                                                                            
-           echo '</div>';                             
-       }    
-   } 
-  
+
     
     ?> 
   
