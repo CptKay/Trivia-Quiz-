@@ -10,7 +10,7 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
     <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
-
+    <script scr="scripts/js/main.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
 
     
@@ -87,7 +87,8 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100 bg-info">
-    
+  
+
 <header>
 <?php 
 
@@ -239,12 +240,29 @@ $question = fetchQuestionById($id, $dbConn);
 
   </div>
 
+  <div class="col">
+    
+    </div>
+    <div class="col">
+    
+    </div>
+    <div class="col">
+    </div>
+    <div class="row">
+
   
-</main>
+    <p class="lead"></p>
+    <p><h6> Question <?php echo ($currentQuestionIndex +1)
+?> of <?php echo $quiz["questionNum"];?> : <?php echo $question["question_text"]; ?> </h6></p>
 
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
+<p><h7>Your answer:</h7></p>
+    </div>
 
+  <form action="<?php echo $link; ?>" method="post">
+
+  <?php
+ 
+ 
   
     <span class="text-muted">Trivia Quiz <?php echo $quiz["topic"] ?> Questions</span>
   </div>
