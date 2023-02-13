@@ -10,9 +10,8 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
     <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
-    <script scr="scripts/js/main.js"></script>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
-
+    <script src="scripts/js/main.js"></script>
     
 
     
@@ -81,6 +80,7 @@
         -webkit-overflow-scrolling: touch;
       }
     </style>
+
 
     
     <!-- Custom styles for this template -->
@@ -151,7 +151,8 @@ $question = fetchQuestionById($id, $dbConn);
 <p><h7>Your answer:</h7></p>
     </div>
 
-  <form action="<?php echo $link; ?>" method="post">
+ 
+  <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
 
   <?php
 
@@ -210,7 +211,7 @@ $question = fetchQuestionById($id, $dbConn);
            
            // print html radio button for each answer   
            echo '<div class="form-check">';                                                  
-               echo '<input class="form-check-input" type="radio">'; 
+               echo '<input class="form-check-input" type="radio" name="answerOption">'; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
            echo '</div>';                             
        }    
@@ -232,7 +233,8 @@ $question = fetchQuestionById($id, $dbConn);
 <input type="hidden" id="indexStep" name="indexStep" value="1">
 </div>
 
-<input class="btn btn-info" type="submit" value="Submit">           
+<input class="btn btn-info" type="submit">
+           
 
 
 </form>
@@ -258,10 +260,8 @@ $question = fetchQuestionById($id, $dbConn);
 <p><h7>Your answer:</h7></p>
     </div>
 
-  <form action="<?php echo $link; ?>" method="post">
+  
 
-  <?php
- 
  
   
     <span class="text-muted">Trivia Quiz <?php echo $quiz["topic"] ?> Questions</span>
@@ -270,7 +270,7 @@ $question = fetchQuestionById($id, $dbConn);
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
+  
       
   </body>
 </html>
