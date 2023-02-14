@@ -1,5 +1,5 @@
 <?php
-   include "./scripts/php_includes/data-collector.php";
+include "./scripts/php_includes/data-collector.php";
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+    <title>Trivia Quiz +</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
 
@@ -87,12 +87,6 @@
     <link href="css/sticky-footer-navbar.css" rel="stylesheet">
   </head>
   <body class="d-flex flex-column h-100 bg-info">
-
-    <?php
-    echo "Hello, we are starting to work with Databases and PHP PDO!"; 
-?>
-
-
     
 <header>
 <?php 
@@ -104,20 +98,10 @@ if (isset($quiz["questionIdSequence"])) {
 }
 
 
-/* $i= intval($_POST["questLastInd"])+1;
-$id = $quiz["questionIdSequence"]["$i"]; */
+// Frage auslesen
 
 $question = fetchQuestionById($id, $dbConn);
-
-
-
-
-
-
-// $question = fetchQuestionById($id, $dbConn);
-
-
-    // Frage auslesen
+    
     ?>
   <!-- Fixed navbar -->
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -166,33 +150,52 @@ $question = fetchQuestionById($id, $dbConn);
 <p><h7>Your answer:</h7></p>
     </div>
 
-  <form action="<?php echo $link; ?>" method="post">
+ 
+  <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
+  <!-- <form action="<?php echo $link; ?>" method="post"> -->
+
 
   <?php
 
-$correct = $question["correct"];
+          $correct = $answer["is_correct"] = 1;
+          // prepare and execute the select statements
+          $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
+          $selectAnswers->bindValue(1, $question["id"]);
+          $selectAnswers->execute();
 
-  for ($a = 1; $a <= 5; $a++) {
+   if ($question["type"] == "MULTIPLE") {
+       
+       // display checkboxes buttons for answers to questions with MULTIPLE answers
+       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+           /*
+           print "<pre>"; 
+           print_r($answer); 
+           print "</pre>"; 
+           */
 
-    $answerColName = "answer-" . $a;
-
-
-    
-
-    if(isset($question[$answerColName])&&$question[$answerColName] !== ''){
-      $answerText = $question[$answerColName];
-    if ($correct === $answerColName) $value = 1;
-    else $value = 0;
-
-    echo "<div class='form-check form-check-inline'>
-  
-    <input class='form-check-input' type='radio' name='single-choice' id= '$answerColName' value='$value'>
-    <label class='form-check-label' for='single-choice-0'>$answerText</label>
-  </div>";
-  }
-};
-
-    
+           // print html checkbox for each answer                    
+           echo '<div class="form-check">';                         
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
+           echo '</div>';                                                     
+       }
+   } else {
+       // display radio buttons for answers to questions with one SINGLE answer
+       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+           
+           /*
+           print "<pre>"; 
+           print_r($answer); 
+           print "</pre>"; 
+           */
+           
+           // print html radio button for each answer   
+           echo '<div class="form-check">';                                                  
+               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
+           echo '</div>';                             
+       }    
+   } 
 
     
     ?> 
@@ -215,23 +218,22 @@ $correct = $question["correct"];
 
 </form>
 
+<?php prettyPrint($_SESSION , "Test") ?>
 
   </div>
+    </form>
 
-  
-</main>
+  </main>
+  <footer class="footer mt-auto py-3 bg-light">
+    <div class="container">
+      <span class="text-muted">Trivia Quiz
+        <?php echo $quiz["topic"] ?> Questions
+      </span>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
 
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-
-  
-    <span class="text-muted">Trivia Quiz <?php echo $quiz["topic"] ?> Questions</span>
-  </div>
-</footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-      
-  </body>
 </html>

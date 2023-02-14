@@ -13,78 +13,13 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
 
-    
-
-    
-
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+    <link href="css/style.css">
     <!-- Favicons -->
 
 <meta name="theme-color" content="#712cf9">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-
-      .b-example-divider {
-        height: 3rem;
-        background-color: rgba(0, 0, 0, .1);
-        border: solid rgba(0, 0, 0, .15);
-        border-width: 1px 0;
-        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-      }
-
-      .b-example-vr {
-        flex-shrink: 0;
-        width: 1.5rem;
-        height: 100vh;
-      }
-
-      .bi {
-        vertical-align: -.125em;
-        fill: currentColor;
-      }
-
-      .nav-scroller {
-        position: relative;
-        z-index: 2;
-        height: 2.75rem;
-        overflow-y: hidden;
-      }
-
-      .nav-scroller .nav {
-        display: flex;
-        flex-wrap: nowrap;
-        padding-bottom: 1rem;
-        margin-top: -1px;
-        overflow-x: auto;
-        text-align: center;
-        white-space: nowrap;
-        -webkit-overflow-scrolling: touch;
-      /* }
-
-      .img-fluid {
-
-max-width: 10%;
-
-*/
-} 
-    </style>
-
-    
     <!-- Custom styles for this template -->
     <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
     
@@ -111,10 +46,10 @@ max-width: 10%;
 
 $totalPoints = 0;
 
-foreach ($_SESSION as $name => $value) {
+foreach ($_SESSION as $name => $correct) {
     if (str_contains($name, 'question-')) {
-        if (isset($value["single-choice"])) {
-            $points = intval($value["single-choice"]);
+        if (isset($correct["single-choice"])) {
+            $points = intval($correct["single-choice"]);
             $totalPoints = $totalPoints + $points;
         }
     }
@@ -122,6 +57,17 @@ foreach ($_SESSION as $name => $value) {
 
 $maxPoints = $_SESSION["quiz"]["questionNum"];
 
+$totalPoints_100 = round(($totalPoints / $maxPoints) *100);
+
+if ($totalPoints_100 <= 30) {
+  $result = "result_30.php";
+} elseif ($totalPoints_100 > 30 && $totalPoints_100 <= 60) {
+  $result = "result_60.php";
+} elseif ($totalPoints_100 > 60 && $totalPoints_100 <= 80) {
+  $result = "result_80.php";
+} else {
+  $result = "result_100.php";
+};
     ?>
 
 <!-- Begin page content -->
@@ -134,7 +80,7 @@ $maxPoints = $_SESSION["quiz"]["questionNum"];
     <h1 class="mt-5">Result:</h1>
     </div>
     <div class="col">
-    <h2 class="mt-5">You made <?php echo $totalPoints ?> of <?php echo $maxPoints ?> points!</h1>
+    <h2 class="mt-5">You made <?php include "./$result"; ?></h1>
     </div>
     <div class="col">
      
