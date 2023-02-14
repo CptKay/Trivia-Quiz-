@@ -38,11 +38,15 @@ include "./scripts/php_includes/data-collector.php";
   </header>
   <!-- Begin page content -->
   <main class="flex-shrink-0">
-    <div class="">
+    <div class="col-md-12">
       <h1 class="mt-5">Trivia Quiz</h1>
-      <form onsubmit="return validateSelection()" id="quiz" action="questions.php" method="post"  class="md">
-        <select class="form-select" aria-label="Select category" name="topic">
+      <form onsubmit="return validateSelection()" id="quiz" action="questions.php" method="post" class="md">
+      <div class="text-center">
+        <div class="text-center">Category</div>
+        <br>
+        <select style="width:170px;" class="form-select text-center position-absolute start-50 translate-middle" aria-label="Select category" name="topic">
           <option selected>Select category</option>
+          </div>
           <?
           /* $question = fetchQuestionById($id, $dbConn);
           $sql = 'SHOW COLUMNS FROM '.$table_name.' WHERE field="'.$column_name.'"';
@@ -64,10 +68,13 @@ include "./scripts/php_includes/data-collector.php";
         <!-- Anzahl Fragen-->
         <div>
           <label style="margin-top:20px;" for="questionNum" class="form-label"> Number of questions</label>
-          <input style="width:100px;" type="number" class="form-control" id="questionNum" name="questionNum" min="5"
+          </div>
+          <div>
+          <input style="width:130px;" type="number" class="mt-3 form-select text-center position-absolute start-50 translate-middle" id="questionNum" name="questionNum" min="5"
             max="40" value="10">
           <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
           <input type="hidden" id="indexStep" name="indexStep" value="1">
+          </div>
           <div class="container h-50">
             <figure>
               <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
