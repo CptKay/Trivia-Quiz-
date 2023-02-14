@@ -70,17 +70,17 @@ include "./scripts/php_includes/data-collector.php";
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html checkbox for each answer  
               echo '<div class="row justify-content-center">';
-              echo '<div" class="form-check">';
-              echo '<input class="form-check-input" type="checkbox">';
-              echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
-              echo '</div>';
+              echo '<div class="form-check">';                         
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
+           echo '</div>';
             }
           } else {
             // display radio buttons for answers to questions with one SINGLE answer
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html radio button for each answer   
               echo '<div class="form-check">';
-              echo '<input class="form-check-input" type="radio" name="single-choice">';
+              echo '<input class="form-check-input" type="radio" name="single-choice" id= "$answer[id]" value="$answer[is_correct]" >'; 
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
               echo '</div>';
             }
