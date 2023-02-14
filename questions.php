@@ -100,8 +100,8 @@ $question = fetchQuestionById($id, $dbConn);
     </div>
 
  
-  <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
-  <!-- <form action="<?php echo $link; ?>" method="post"> -->
+  <!-- <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post"> -->
+  <form action="<?php echo $link; ?>" method="post">
 
 
   <?php
@@ -147,7 +147,7 @@ $question = fetchQuestionById($id, $dbConn);
 
            // print html checkbox for each answer                    
            echo '<div class="form-check">';                         
-               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]'>"; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
            echo '</div>';                                                     
        }
