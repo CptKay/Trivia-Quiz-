@@ -100,8 +100,8 @@ $question = fetchQuestionById($id, $dbConn);
     </div>
 
  
-  <!-- <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post"> -->
-  <form action="<?php echo $link; ?>" method="post">
+  <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
+  <!-- <form action="<?php echo $link; ?>" method="post"> -->
 
 
   <?php
