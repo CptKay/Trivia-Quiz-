@@ -163,6 +163,7 @@ $question = fetchQuestionById($id, $dbConn);
           $selectAnswers->bindValue(1, $question["id"]);
           $selectAnswers->execute();
 
+
    if ($question["type"] == "MULTIPLE") {
        
        // display checkboxes buttons for answers to questions with MULTIPLE answers
@@ -219,6 +220,7 @@ $question = fetchQuestionById($id, $dbConn);
 </form>
 
 <?php prettyPrint($_SESSION , "Test") ?>
+
 
   </div>
     </form>
