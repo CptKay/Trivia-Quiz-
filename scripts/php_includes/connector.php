@@ -1,5 +1,17 @@
 <?php
 
+/* $host = '185.254.96.204';
+$port = '3336';
+$dbname = 'db_blue';
+$username = 'winx';
+$password = 'opportunity';
+
+try {
+  $dbConn = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);
+  $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $pe) {
+    die("Konnte nicht mit der Datenbank $dbname verbinden:" . $pe->getMessage());
+} */ 
 
 
 $dbHost = getEnv('DB_HOST');
@@ -13,7 +25,7 @@ try {
   // $dbConn = new PDO("mysql:host=$dbHost;dbname=$dbName", $dbUser, $dbPassword);
   // set the PDO error mode to exception
   $dbConn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+  // echo "Connected successfully";
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
@@ -24,6 +36,16 @@ function fetchQuestionById($id, $dbConn) {
 
   $sqlQuery=$dbConn->query("SELECT * FROM `questions` WHERE `id` = $id");
     $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
+
+   // print_r($row);
+
+  return $row;
+};
+function fetchAnswerById($id, $dbConn) {
+
+  $sqlQuery=$dbConn->query("SELECT id,answers FROM `answers` WHERE `id` = $id");
+    $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
+   
 
    // print_r($row);
 
@@ -65,14 +87,10 @@ $nameMap = array(
   
 
 )
-
 );
-
 function nColumnName($columnName)
 {
   return NAME_MAP[$columnName];
-
 }
- // ucfirst "title" , "author" , "genre" , "description" , "publisher" , "price" , "currency" , "in_stock" , "ISBN"
 
 ?>
