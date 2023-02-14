@@ -40,7 +40,7 @@ include "./scripts/php_includes/data-collector.php";
   <main class="flex-shrink-0">
     <div class="">
       <h1 class="mt-5">Trivia Quiz</h1>
-      <form id="quiz" action="questions.php" method="post" class="md">
+      <form onsubmit="return validateSelection()" id="quiz" action="questions.php" method="post"  class="md">
         <select class="form-select" aria-label="Select category" name="topic">
           <option selected>Select category</option>
           <?
