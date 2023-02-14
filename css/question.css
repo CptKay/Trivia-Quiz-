@@ -14,7 +14,12 @@
     }
   }
 
-
+img {
+    display:flex;
+    width: 30%;
+    height: 30%;
+    object-fit: cover;
+}
 
 body{
     background-color: #D7FDEC;
@@ -28,6 +33,7 @@ body{
     max-width: 700px;
 }
 .containerq{
+    
     background-color: #578c74;
     color: #000000;
     border-radius: 10px;
@@ -39,7 +45,8 @@ body{
     font-size: 32px;
 }
 .question{
-    width: 75%;
+    width: auto;
+    
 }
 .options{
     position: relative;
@@ -87,6 +94,7 @@ body{
 .options input[type="radio"]:checked ~ .checkmark:after{
     transform: translate(-50%,-50%) scale(1);
 }
+
 .btn-primary{
     background-color: #555;
     color: #ddd;
