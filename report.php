@@ -47,7 +47,7 @@
 $totalPoints = 0;
 
 foreach ($_SESSION as $name => $correct) {
-    if (str_contains($name, 'question-')) {
+    if (str_contains($name,  'question-')) {
         if (isset($correct["single-choice"])) {
             $points = intval($correct["single-choice"]);
             $totalPoints = $totalPoints + $points;
