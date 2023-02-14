@@ -52,6 +52,7 @@ else if(str_contains($scriptName, 'questions')) {
       );
    }
    
+   
 
    $indexStep = 1;
    if (isset($_POST["indexStep"])) {

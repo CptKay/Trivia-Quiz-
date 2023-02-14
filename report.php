@@ -111,10 +111,10 @@ max-width: 10%;
 
 $totalPoints = 0;
 
-foreach ($_SESSION as $name => $value) {
+foreach ($_SESSION as $name => $correct) {
     if (str_contains($name, 'question-')) {
-        if (isset($value["single-choice"])) {
-            $points = intval($value["single-choice"]);
+        if (isset($correct["single-choice"])) {
+            $points = intval($correct["single-choice"]);
             $totalPoints = $totalPoints + $points;
         }
     }
@@ -122,6 +122,17 @@ foreach ($_SESSION as $name => $value) {
 
 $maxPoints = $_SESSION["quiz"]["questionNum"];
 
+$totalPoints_100 = ($totalPoints / $maxPoints) *100;
+
+if ($totalPoints_100 <= 30) {
+  $result = "result_30.php";
+} elseif ($totalPoints_100 > 30 && $totalPoints_100 <= 60) {
+  $result = "result_60.php";
+} elseif ($totalPoints_100 > 60 && $totalPoints_100 <= 80) {
+  $result = "result_80.php";
+} else {
+  $result = "result_100.php";
+};
     ?>
 
 <!-- Begin page content -->
@@ -134,7 +145,7 @@ $maxPoints = $_SESSION["quiz"]["questionNum"];
     <h1 class="mt-5">Result:</h1>
     </div>
     <div class="col">
-    <h2 class="mt-5">You made <?php echo $totalPoints ?> of <?php echo $maxPoints ?> points!</h1>
+    <h2 class="mt-5">You made <?php include "./$result"; ?></h1>
     </div>
     <div class="col">
      
