@@ -80,7 +80,7 @@ include "./scripts/php_includes/data-collector.php";
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html radio button for each answer   
               echo '<div class="form-check">';
-              echo '<input class="form-check-input" type="radio" name="answerOption">';
+              echo '<input class="form-check-input" type="radio" name="single-choice">';
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
               echo '</div>';
             }
