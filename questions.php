@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Sticky Footer Navbar Template · Bootstrap v5.2</title>
+    <title>Trivia Quiz +</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
 
@@ -194,7 +194,7 @@ $question = fetchQuestionById($id, $dbConn);
 
            // print html checkbox for each answer                    
            echo '<div class="form-check">';                         
-               echo '<input class="form-check-input" type="checkbox"  name="multiple-choice" id= ". $answer["id"] ." value=". $answer["is_correct"] .">'; 
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
            echo '</div>';                                                     
        }

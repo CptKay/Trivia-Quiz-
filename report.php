@@ -122,7 +122,7 @@ foreach ($_SESSION as $name => $correct) {
 
 $maxPoints = $_SESSION["quiz"]["questionNum"];
 
-$totalPoints_100 = ($totalPoints / $maxPoints) *100;
+$totalPoints_100 = round(($totalPoints / $maxPoints) *100);
 
 if ($totalPoints_100 <= 30) {
   $result = "result_30.php";
