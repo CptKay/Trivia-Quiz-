@@ -40,12 +40,12 @@ include "./scripts/php_includes/data-collector.php";
   <main class="flex-shrink-0">
     <div class="col-md-12">
       <h1 class="mt-5">Trivia Quiz</h1>
-      <form id="quiz" action="questions.php" method="post" class="md" onsubmit="return validateSelection()">
+      <form onsubmit="return validateSelection()" id="quiz" action="questions.php" method="post" class="md">
       <div class="text-center">
         <div class="text-center">Category</div>
         <br>
-        <select style="width:130px;" class="form-select text-center position-absolute start-50 translate-middle" aria-label="Select category" name="topic">
-          <option selected>Select</option>
+        <select style="width:170px;" class="form-select text-center position-absolute start-50 translate-middle" aria-label="Select category" name="topic">
+          <option selected>Select category</option>
           </div>
           <?
           /* $question = fetchQuestionById($id, $dbConn);
