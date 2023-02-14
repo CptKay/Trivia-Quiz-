@@ -103,34 +103,59 @@ if (isset($quiz["questionIdSequence"])) {
 $question = fetchQuestionById($id, $dbConn);
     
     ?>
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="index.php">
-          <h5 class="mt-0 text-light">Restart Trivia Quiz</h5>
-        </a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-        </div>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="index.php"><h5 class="mt-0 text-light">Restart Trivia Quiz</h5></a>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
       </div>
-    </nav>
-  </header>
-  <br>
-  <br>
-  <br>
-  <!-- Begin page content -->
-  <div class="container mt-sm-5 my-1">
-    <main class="question flex-shrink-0">
-      <div class="py-2 h5"><b> Question
-          <?php echo ($currentQuestionIndex + 1)
-            ?> of
-          <?php echo $quiz["questionNum"]; ?> :
-          <?php echo $question["question_text"]; ?>
-        </b></div>
-      <?php echo '<img src="/images/' . $question["image"] . '" width="auto">'; ?>
-      <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
-        <form style="width:auto;" class="form-select containerq" onsubmit="return validateForm();"
-          action="<?php echo $link; ?>" method="post">
-          <?php
+    </div>
+  </nav>
+</header>
+
+
+
+<!-- Begin page content -->
+
+
+<main class="flex-shrink-0">
+
+  <div class="container-fluid">
+  <div class="col">
+    <h1 class="mt-5"></h1>
+    </div>
+    <div class="col">
+    <h2 class="mt-5"></h1>
+    </div>
+    <div class="col">
+     
+    </div>
+  </div>
+
+  <div class="col">
+    
+    </div>
+    <div class="col">
+    
+    </div>
+    <div class="col">
+    </div>
+    <div class="row">
+
+  
+    <p class="lead"></p>
+    <p><h6> Question <?php echo ($currentQuestionIndex +1)
+?> of <?php echo $quiz["questionNum"];?> : <?php echo $question["question_text"]; ?> </h6></p>
+
+<p><h7>Your answer:</h7></p>
+    </div>
+
+ 
+  <!-- <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post"> -->
+  <form action="<?php echo $link; ?>" method="post">
+
+
+  <?php
 
           $correct = $answer["is_correct"] = 1;
           // prepare and execute the select statements
@@ -192,9 +217,9 @@ $question = fetchQuestionById($id, $dbConn);
 
 
 </form>
-<?php
-prettyPrint($_SESSION, "Session")
-?>
+
+<?php prettyPrint($_SESSION , "Test") ?>
+
   </div>
     </form>
 
