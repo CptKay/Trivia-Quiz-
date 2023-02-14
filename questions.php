@@ -43,7 +43,7 @@ include "./scripts/php_includes/data-collector.php";
   </header>
   <br>
   <br>
-  <br>
+
   <!-- Begin page content -->
   <div class="container mt-sm-5 my-1">
     <main class="question flex-shrink-0">
@@ -53,7 +53,7 @@ include "./scripts/php_includes/data-collector.php";
           <?php echo $quiz["questionNum"]; ?> :
           <?php echo $question["question_text"]; ?>
         </b></div>
-      <?php echo '<img src="/images/' . $question["image"] . '" width="auto">'; ?>
+      <?php echo '<img id="optionalstuff" src="/images/' . $question["image"] . '" width="auto">'; ?>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
         <form style="width:auto;" class="form-select containerq" onsubmit="return validateForm();"
           action="<?php echo $link; ?>" method="post">

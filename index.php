@@ -75,16 +75,16 @@ include "./scripts/php_includes/data-collector.php";
           <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
           <input type="hidden" id="indexStep" name="indexStep" value="1">
           </div>
-          <div class="container h-50">
+          <div class="container h-25">
             <figure>
               <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
-              <figcaption class="figure-caption text-center"></figcaption>
+              <figcaption class="figure-caption text-center"><div class="col-md-12 text-center">
+    <input type="submit" value="Start" class="btn btn-primary btn-lg mb-5">
+  </div></figcaption>
             </figure>
           </div>
   </main>
-  <div class="col-md-12 text-center">
-    <input type="submit" value="Start" class="btn btn-primary btn-lg mb-5">
-  </div>
+  
   </div>
   </div>
   </div>
