@@ -1,4 +1,9 @@
-.bd-placeholder-img {
+body {
+  background-color:#D7FDEC;
+  
+}
+
+/*  .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
     -webkit-user-select: none;
@@ -6,10 +11,7 @@
     user-select: none;
   }
 
-  body {
-    background-color:#D7FDEC;
-    
-  }
+ 
   
 
   @media (min-width: 768px) {
@@ -65,12 +67,12 @@
         font-size: 3.5rem;
       }
     }
-    
+     */
 
     img {
       display: block;
-      max-width: 60%;
-      height: auto;
+      max-width: 50vh;
+      max-height: 50vh;
     }
 
  

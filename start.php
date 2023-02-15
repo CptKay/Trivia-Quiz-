@@ -24,14 +24,13 @@ include "./scripts/php_includes/data-collector.php";
     </nav>
   </header>
   <!-- Begin page content -->
-  <div class="container d-flex">
     <div class="col-md-12 text-center">
-      <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block mt-5" alt="Quiz Starting image">
+      <br>
+      <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block" alt="Quiz Starting image">
          <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Start</a>
         </div>
-        </div>
   <footer class="fixed-bottom mt-auto py-3 bg-light">
-    <div class="container">
+    <div class="container-fluid">
       <span class="text-muted">Trivia Quiz</span>
     </div>
   </footer>
