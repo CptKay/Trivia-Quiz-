@@ -154,7 +154,6 @@ $question = fetchQuestionById($id, $dbConn);
   <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post">
   <!-- <form action="<?php echo $link; ?>" method="post"> -->
 
-
   <?php
 
           $correct = $answer["is_correct"] = 1;
@@ -199,6 +198,7 @@ $question = fetchQuestionById($id, $dbConn);
 
     
     ?> 
+
   
     
 
