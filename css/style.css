@@ -97,18 +97,17 @@ left: 50%;
       width: 100%;
       /* word-spacing: 2px; word spacing from question*/
   } 
+  #optionalstuff {
+    image:none;
 }
-@media screen and (max-width: 480px) {
-
-  .optionalstuff img {display:none;}
-
 }
+
     img {
       display: block;
       max-width: 50vh;
       max-height: 50vh;
     }
-    .optionalstuff {
+    #optionalstuff {
       
       max-width: 40vh;
       max-height: 40vh;
