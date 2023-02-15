@@ -79,7 +79,7 @@ $question = fetchQuestionById($id, $dbConn);
         </b></div>
       <?php echo '<img id="optionalstuff" src="/images/' . $question["image"] . '" width="auto">'; ?>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
-        <form style="width:auto;" class="form-select containerq" 
+        <form style="width:auto;" class="form-select containerq" name="answer"
           action="<?php echo $link; ?>" method="post">
           <?php
 
@@ -93,10 +93,10 @@ $question = fetchQuestionById($id, $dbConn);
           if ($question["type"] == "MULTIPLE") {
             // display checkboxes buttons for answers to questions with MULTIPLE answers
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
-              // print html checkbox for each answer  
+              // print html checkbox for each answer              
               echo '<div class="row justify-content-center">';
-              echo '<div class="form-check">';                         
-               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
+              echo '<div class="form-check" id="ckb">';                         
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]' onclick='checkBoxLimit()';>"; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
 
            echo '</div>';
@@ -112,6 +112,28 @@ $question = fetchQuestionById($id, $dbConn);
             }
           }
           ?>
+
+          <!-- Limit checkbox selection -->
+
+                   <script type="text/javascript">
+function checkBoxLimit() {
+  var checkBoxGroup = document.getElementsByName("multiple-choice[]");
+  var limit = 2;
+for(var i=0; i < checkBoxGroup.length; i++){
+  checkBoxGroup[i].onclick = function() {
+			var checkedcount = 0;
+        for (var i = 0; i < checkBoxGroup.length; i++) {
+          checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+        }
+        if (checkedcount > limit) {
+          console.log("You can select maximum of " + limit + " checkboxes.");
+				alert("You can select maximum of " + limit + " checkboxes.");						
+				this.checked = false;
+			}
+		}
+	}
+}
+</script>
 
           <div class="d-flex align-items-center pt-3">
             <div id="prev">

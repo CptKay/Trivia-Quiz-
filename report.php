@@ -46,31 +46,80 @@
 $points = 0;
 $totalPoints = 0;
 
-
+// single choice only:
 /* foreach ($_SESSION as $name => $correct) {
     if (str_contains($name, 'question-')) {
 
         if (isset($correct["single-choice"])) {
-            $points = intval($correct["single-choice"]);
-            $totalPoints = $totalPoints + $points;
-        }
+            $points = intval($correct["single-choice"]); */
+            // $totalPoints = $totalPoints + $points;
+/*         }
     }
 } */
 
-foreach ($_SESSION as $name => $correct) {
+// multiple choice doesn't work
+/* foreach ($_SESSION as $name => $correct) {
   if (str_contains($name, 'question-')) {
-      if (isset($correct["single-choice"])) {
+      if (isset($correct["multiple-choice"])) {
+          $answer = $correct["multiple-choice"];
+          $selected = $_POST[$name]["multiple-choice"];
+          if (is_array($selected)) {
+              sort($selected);
+              sort($answer);
+              if ($selected == $answer) {
+                  $points = count($answer);
+                  $totalPoints += $points;
+              }
+          }
+      }
+  }
+} */
+
+// single,- multiple choice test only works on HISTORY:
+/* foreach ($_SESSION as $name => $correct) {
+  if (str_contains($name, 'question-')) {
+      if (isset($correct["single-choice"])) { */
           // $points = 0;
-          $points = intval($correct["single-choice"]);
+          // $points = intval($correct["single-choice"]);
           /* $answer = $correct["single-choice"];
           $selected = $_POST[$name]["single-choice"] ?? '';
           if ($selected === $answer) {
               $points = 1;
           }
           $totalPoints += $points; */
-      } elseif (isset($correct["multiple-choice"])) {
+      // } elseif (isset($correct["multiple-choice"])) {
           // $points = 0;
-          $points = intval($correct["multiple-choice"]);
+ /*          $points = intval($correct["multiple-choice"]);
+          $answer = $correct["multiple-choice"];
+          $selected = $_SESSION[$name]["multiple-choice"] ?? [];
+          if (is_array($selected)) {
+              sort($selected);
+              sort($answer);
+              if ($selected == $answer) {
+                  $points = count($answer);
+              }
+          }
+          $totalPoints += $points;
+      }
+  }
+} */
+
+// counts every selection
+/* $totalPoints = 0;
+$maxPoints = $_SESSION["quiz"]["questionNum"];
+
+foreach ($_SESSION as $name => $correct) {
+  if (str_contains($name, 'question-')) {
+      if (isset($correct["single-choice"])) {
+          $points = 0;
+          $answer = $correct["single-choice"];
+          $selected = $_SESSION[$name]["single-choice"] ?? '';
+          if ($selected === $answer) {
+              $points = 1;
+          }
+          $totalPoints += $points;
+      } elseif (isset($correct["multiple-choice"])) {
+          $points = 0;
           $answer = $correct["multiple-choice"];
           $selected = $_SESSION[$name]["multiple-choice"] ?? [];
           if (is_array($selected)) {
@@ -84,6 +133,43 @@ foreach ($_SESSION as $name => $correct) {
       }
   }
 }
+
+$totalPoints = min($totalPoints, $maxPoints); */
+
+// Seems correct:
+$totalPoints = 0;
+$maxPoints = $_SESSION["quiz"]["questionNum"];
+
+foreach ($_SESSION as $name => $correct) {
+  if (str_contains($name, 'question-')) {
+      if (isset($correct["single-choice"])) {
+          $points = 0;
+          $answer = $correct["single-choice"];
+          $selected = $_SESSION[$name]["single-choice"] ?? '';
+          if (!empty($selected) && $selected === $answer) {
+              $points = 1;
+          }
+          $totalPoints += $points;
+      } elseif (isset($correct["multiple-choice"])) {
+          $points = 0;
+          $answer = $correct["multiple-choice"];
+          $selected = $_SESSION[$name]["multiple-choice"] ?? [];
+          if (is_array($selected)) {
+              sort($selected);
+              sort($answer);
+              if ($selected == $answer) {
+                  $points = count($answer) / 2;
+              }
+          }
+          $totalPoints += $points;
+      }
+  }
+}
+
+$totalPoints = min($totalPoints, $maxPoints);
+
+
+
 
 $maxPoints = $_SESSION["quiz"]["questionNum"];
 
