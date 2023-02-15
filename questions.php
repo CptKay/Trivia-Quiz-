@@ -151,120 +151,13 @@ for(var i=0; i < checkBoxGroup.length; i++){
 
   </div>
 
-  <div class="col">
-    
-    </div>
-    <div class="col">
-    
-    </div>
-    <div class="col">
-    </div>
-    <div class="row">
-
-  
-    <p class="lead"></p>
-    <p><h6> Question <?php echo ($currentQuestionIndex +1)
-?> of <?php echo $quiz["questionNum"];?> : <?php echo $question["question_text"]; ?> </h6></p>
-
-<p><h7>Your answer:</h7></p>
-    </div>
-
- 
-  <!-- <form onsubmit="return validateForm();" action="<?php echo $link; ?>" method="post"> -->
-  <form action="<?php echo $link; ?>" method="post">
 
 
-  <?php
-
- $correct = $answer["is_correct"] = 1;
-
-  /*
-  for ($a = 1; $a <= 5; $a++) {
-
-    $answerColName = "answer-" . $a;
-
-
-    
-
-    if(isset($question[$answerColName])&&$question[$answerColName] !== ''){
-      $answerText = $question[$answerColName];
-    if ($correct === $answerColName) $value = 1;
-    else $value = 0;
-
-    echo "<div class='form-check form-check-inline'>
-  
-    <input class='form-check-input' type='radio' name='single-choice' id= '$answerColName' value='$value'>
-    <label class='form-check-label' for='single-choice-0'>$answerText</label>
-  </div>";
-  }
-}; */
-
-   // prepare and execute the select statements
-   $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
-   $selectAnswers->bindValue(1, $question["id"]);                 
-   $selectAnswers->execute();                 
-
-
-   if ($question["type"] == "MULTIPLE") {
-       
-       // display checkboxes buttons for answers to questions with MULTIPLE answers
-       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
-           /*
-           print "<pre>"; 
-           print_r($answer); 
-           print "</pre>"; 
-           */
-
-           // print html checkbox for each answer                    
-           echo '<div class="form-check">';                         
-               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]'>"; 
-               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
-           echo '</div>';                                                     
-       }
-   } else {
-       // display radio buttons for answers to questions with one SINGLE answer
-       while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
-           
-           /*
-           print "<pre>"; 
-           print_r($answer); 
-           print "</pre>"; 
-           */
-           
-           // print html radio button for each answer   
-           echo '<div class="form-check">';                                                  
-               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >"; 
-               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';                                                                            
-           echo '</div>';                             
-       }    
-   } 
-
-    
-    ?> 
-  
-    
-
-
-</div>
-
-<div class="hidden">
-
-<input type="hidden" class="form-control" id="questionNum" name="questionNum" value="<?php echo $quiz["questionNum"]; ?>" >
-
-<input type="hidden" id="questLastInd" name="questLastInd" value="<?php echo $currentQuestionIndex; ?>">
-<input type="hidden" id="indexStep" name="indexStep" value="1">
-</div>
-
-<input class="btn btn-info" type="submit" value="Submit">           
-
-
-</form>
-
-<?php prettyPrint($_SESSION , "Test") ?>
+<!-- <?php prettyPrint($_SESSION , "Test") ?> -->
 
   </div>
 
-  
+  </form>
 </main>
 
 <footer class="footer mt-auto py-3 bg-light">
