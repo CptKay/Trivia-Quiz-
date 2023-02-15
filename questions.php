@@ -52,33 +52,81 @@ if (isset($quiz["questionIdSequence"])) {
 $question = fetchQuestionById($id, $dbConn);
     
     ?>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><h5 class="mt-0 text-light">Restart Trivia Quiz</h5></a>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">
+          <h5 class="mt-0 text-light">Restart Trivia Quiz</h5>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div>
       </div>
-    </div>
-  </nav>
-</header>
+
+    </nav>
+  </header>
+  <br>
+  <br>
+
+  <!-- Begin page content -->
+  <div class="container mt-sm-5 my-1">
+    <main class="question flex-shrink-0">
+      <div class="py-2 h5"><b> Question
+          <?php echo ($currentQuestionIndex + 1)
+            ?> of
+          <?php echo $quiz["questionNum"]; ?> :
+          <?php echo $question["question_text"]; ?>
+        </b></div>
+      <?php echo '<img id="optionalstuff" src="/images/' . $question["image"] . '" width="auto">'; ?>
+      <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
+        <form style="width:auto;" class="form-select containerq" 
+          action="<?php echo $link; ?>" method="post">
+          <?php
 
 
+          $correct = $answer["is_correct"] = 1;
+          // prepare and execute the select statements
+          $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
+          $selectAnswers->bindValue(1, $question["id"]);
+          $selectAnswers->execute();
 
-<!-- Begin page content -->
+          if ($question["type"] == "MULTIPLE") {
+            // display checkboxes buttons for answers to questions with MULTIPLE answers
+            while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+              // print html checkbox for each answer  
+              echo '<div class="row justify-content-center">';
+              echo '<div class="form-check">';                         
+               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
+               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
+
+           echo '</div>';
+            }
+          } else {
+            // display radio buttons for answers to questions with one SINGLE answer
+            while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
+              // print html radio button for each answer   
+              echo '<div class="form-check">';
+              echo "<input class='form-check-input' type='radio'  name='single-choice' id='$answer[id]' value='$answer[is_correct]'>";
+              echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
+              echo '</div>';
+            }
+          }
+          ?>
+
+          <div class="d-flex align-items-center pt-3">
+            <div id="prev">
+              <div class="hidden">
+                <input type="hidden" class="form-control" id="questionNum" name="questionNum"
+                  value="<?php echo $quiz["questionNum"]; ?>">
+                <input type="hidden" id="questLastInd" name="questLastInd" value="<?php echo $currentQuestionIndex; ?>">
+                <input type="hidden" id="indexStep" name="indexStep" value="1">
+                <input class="btn btn-info justify-content-center" type="submit" value="Submit">
+              </div>
+            </div>
+          </div>
+      </div>
 
 
-<main class="flex-shrink-0">
-
-  <div class="container-fluid">
-  <div class="col">
-    <h1 class="mt-5"></h1>
-    </div>
-    <div class="col">
-    <h2 class="mt-5"></h1>
-    </div>
-    <div class="col">
-     
-    </div>
   </div>
 
   <div class="col">
