@@ -90,7 +90,7 @@ include "./scripts/php_includes/data-collector.php";
   </div>
   </form>
   </main>
-  <footer class="footer mt-0 py-3 bg-light">
+  <footer class="fixed-bottom footer mt-0 py-3 bg-light">
     <div class="container">
       <span class="text-muted">Trivia Quiz</span>
     </div>
