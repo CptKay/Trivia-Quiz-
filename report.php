@@ -43,16 +43,46 @@
 
 <?php
 
-
+$points = 0;
 $totalPoints = 0;
 
-foreach ($_SESSION as $name => $correct) {
-    if (str_contains($name,  'question-')) {
+
+/* foreach ($_SESSION as $name => $correct) {
+    if (str_contains($name, 'question-')) {
+
         if (isset($correct["single-choice"])) {
             $points = intval($correct["single-choice"]);
             $totalPoints = $totalPoints + $points;
         }
     }
+} */
+
+foreach ($_SESSION as $name => $correct) {
+  if (str_contains($name, 'question-')) {
+      if (isset($correct["single-choice"])) {
+          // $points = 0;
+          $points = intval($correct["single-choice"]);
+          /* $answer = $correct["single-choice"];
+          $selected = $_POST[$name]["single-choice"] ?? '';
+          if ($selected === $answer) {
+              $points = 1;
+          }
+          $totalPoints += $points; */
+      } elseif (isset($correct["multiple-choice"])) {
+          // $points = 0;
+          $points = intval($correct["multiple-choice"]);
+          $answer = $correct["multiple-choice"];
+          $selected = $_SESSION[$name]["multiple-choice"] ?? [];
+          if (is_array($selected)) {
+              sort($selected);
+              sort($answer);
+              if ($selected == $answer) {
+                  $points = count($answer);
+              }
+          }
+          $totalPoints += $points;
+      }
+  }
 }
 
 $maxPoints = $_SESSION["quiz"]["questionNum"];
