@@ -81,6 +81,29 @@
             }
           }
           ?>
+
+          <!-- Limit checkbox selection -->
+
+                   <script type="text/javascript">
+function checkBoxLimit() {
+  var checkBoxGroup = document.getElementsByName("multiple-choice[]");
+  var limit = 2;
+for(var i=0; i < checkBoxGroup.length; i++){
+  checkBoxGroup[i].onclick = function() {
+			var checkedcount = 0;
+        for (var i = 0; i < checkBoxGroup.length; i++) {
+          checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+        }
+        if (checkedcount > limit) {
+          console.log("You can select maximum of " + limit + " checkboxes.");
+				alert("You can select maximum of " + limit + " checkboxes.");						
+				this.checked = false;
+			}
+		}
+	}
+}
+</script>
+
           <div class="d-flex align-items-center pt-3">
             <div id="prev">
               <div class="hidden">
