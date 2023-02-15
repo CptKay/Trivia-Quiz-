@@ -98,11 +98,21 @@ left: 50%;
       /* word-spacing: 2px; word spacing from question*/
   } 
 }
+@media screen and (max-width: 480px) {
 
+  .optionalstuff img {display:none;}
+
+}
     img {
       display: block;
       max-width: 50vh;
       max-height: 50vh;
+    }
+    .optionalstuff {
+      
+      max-width: 40vh;
+      max-height: 40vh;
+
     }
 
  
