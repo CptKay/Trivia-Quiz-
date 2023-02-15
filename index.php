@@ -65,7 +65,7 @@ include "./scripts/php_includes/data-collector.php";
             <input type="hidden" id="indexStep" name="indexStep" value="1">
           </div>
           </div>
-          </form>
+          
           <br>
             <figure>
               <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block" alt="Quiz Starting image">
@@ -75,7 +75,7 @@ include "./scripts/php_includes/data-collector.php";
                 </div>
               </figcaption>
             </figure>
-          
+            </form>
    
   <footer class="fixed-bottom footer mt-0 py-3 bg-light">
     <div class="container-fluid">
