@@ -25,7 +25,7 @@ include "./scripts/php_includes/data-collector.php";
   <!-- Custom styles for this template -->
   <link href="css/sticky-footer-navbar.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column h-100" style="background-color: #D7FDEC">
+<body class="d-flex flex-column" style="background-color: #D7FDEC">
   <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -75,9 +75,9 @@ include "./scripts/php_includes/data-collector.php";
           <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
           <input type="hidden" id="indexStep" name="indexStep" value="1">
           </div>
-          <div class="container h-25">
+          <div>
             <figure>
-              <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
+              <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center mt-2"alt="Quiz Starting image">
               <figcaption class="figure-caption text-center"><div class="col-md-12 text-center">
     <input type="submit" value="Start" class="btn btn-primary btn-lg mb-5">
   </div></figcaption>
@@ -90,7 +90,7 @@ include "./scripts/php_includes/data-collector.php";
   </div>
   </form>
   </main>
-  <footer class="footer mt-auto py-3 bg-light">
+  <footer class="footer mt-0 py-3 bg-light">
     <div class="container">
       <span class="text-muted">Trivia Quiz</span>
     </div>

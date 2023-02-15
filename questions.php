@@ -55,7 +55,7 @@ include "./scripts/php_includes/data-collector.php";
         </b></div>
       <?php echo '<img id="optionalstuff" src="/images/' . $question["image"] . '" width="auto">'; ?>
       <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
-        <form style="width:auto;" class="form-select containerq" onsubmit="return validateForm();"
+        <form style="width:auto;" class="form-select containerq" 
           action="<?php echo $link; ?>" method="post">
           <?php
 
