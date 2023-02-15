@@ -39,18 +39,18 @@
 
     </nav>
   </header>
-  <br>
+
   <br>
   <!-- Begin page content -->
-  <div class="container mt-sm-5 my-1">
+  <div class="container mt-2 mt-sm-5 my-1">
     <main class="question flex-shrink-0">
-      <div class="py-2 h5"><b> Question
+      <div class="mt-2 py-2 h5"><b> Question
           <?php echo ($currentQuestionIndex + 1)
             ?> of
           <?php echo $quiz["questionNum"]; ?> :
           <?php echo $question["question_text"]; ?>
         </b></div>
-      <?php echo '<img id="optionalstuff" src="/images/' . $question["image"] . '" ">'; ?>
+      <?php echo '<img class="optionalstuff" src="/images/' . $question["image"] . '" ">'; ?>
       <h7 class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
         <form style="width:auto;" class="form-select containerq" action="<?php echo $link; ?>" method="post">
           <?php
@@ -63,7 +63,7 @@
             // display checkboxes buttons for answers to questions with MULTIPLE answers
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html checkbox for each answer  
-              echo '<div class="row justify-content-center">';
+              echo '<div class="align">';
               echo '<div class="form-check">';
               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]'>";
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
@@ -73,6 +73,7 @@
             // display radio buttons for answers to questions with one SINGLE answer
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html radio button for each answer   
+              echo '<div class="">';
               echo '<div class="form-check">';
               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >";
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
@@ -80,6 +81,28 @@
             }
           }
           ?>
+          <!-- Limit checkbox selection -->
+
+                   <script type="text/javascript">
+function checkBoxLimit() {
+  var checkBoxGroup = document.getElementsByName("multiple-choice[]");
+  var limit = 2;
+for(var i=0; i < checkBoxGroup.length; i++){
+  checkBoxGroup[i].onclick = function() {
+			var checkedcount = 0;
+        for (var i = 0; i < checkBoxGroup.length; i++) {
+          checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+        }
+        if (checkedcount > limit) {
+          console.log("You can select maximum of " + limit + " checkboxes.");
+				alert("You can select maximum of " + limit + " checkboxes.");						
+				this.checked = false;
+			}
+		}
+	}
+}
+</script>
+
           <div class="d-flex align-items-center pt-3">
             <div id="prev">
               <div class="hidden">
@@ -97,8 +120,8 @@
   </div>
   </form>
   </main>
-  <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
+  <footer class="fixed-bottom footer mt-0 py-3 bg-light">
+    <div class="container-fluid">
       <span class="text-muted">Trivia Quiz
         <?php echo $quiz["topic"] ?> Questions
       </span>
