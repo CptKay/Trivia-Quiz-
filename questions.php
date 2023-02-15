@@ -81,6 +81,7 @@
             }
           }
           ?>
+
           <!-- Limit checkbox selection -->
 
                    <script type="text/javascript">
