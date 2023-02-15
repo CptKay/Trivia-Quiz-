@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
+<link rel="stylesheet" href="css/style.css">
     <!-- Custom styles for this template -->
 
       </head>
@@ -27,10 +27,10 @@
 <main class="flex-shrink-0">
     <div class="container">
 <figure>
-  <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center h-60 w-50" alt="Quiz Starting image">
+  <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center mb-5 mt-5" alt="Quiz Starting image">
 </figure>
 <div class="col-md-12 text-center">
-            <a type="button" class="btn btn-primary btn-lg" href="index.php">Start</a>
+            <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Start</a>
 </div>
     </div>
 </main>
