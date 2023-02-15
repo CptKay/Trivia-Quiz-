@@ -39,6 +39,7 @@ include "./scripts/php_includes/data-collector.php";
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div>
       </div>
+
     </nav>
   </header>
   <br>
@@ -59,6 +60,7 @@ include "./scripts/php_includes/data-collector.php";
           action="<?php echo $link; ?>" method="post">
           <?php
 
+
           $correct = $answer["is_correct"] = 1;
           // prepare and execute the select statements
           $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
@@ -73,6 +75,7 @@ include "./scripts/php_includes/data-collector.php";
               echo '<div class="form-check">';                         
                echo "<input class='form-check-input' type='checkbox'  name='multiple-choice' id='$answer[id]' value='$answer[is_correct]'>"; 
                echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
+
            echo '</div>';
             }
           } else {
@@ -99,6 +102,7 @@ include "./scripts/php_includes/data-collector.php";
             </div>
           </div>
       </div>
+
   </div>
     </form>
 
