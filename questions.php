@@ -1,7 +1,8 @@
 <?php
-include "./scripts/php_includes/data-collector.php";
+   include "./scripts/php_includes/data-collector.php";
 ?>
 <!doctype html>
+
 <html lang="en">
 
 <head>
@@ -35,6 +36,7 @@ include "./scripts/php_includes/data-collector.php";
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div>
       </div>
+
     </nav>
   </header>
   <br>
@@ -93,7 +95,7 @@ include "./scripts/php_includes/data-collector.php";
   </div>
   <!-- <?php prettyPrint($_SESSION, "Test") ?> -->
   </div>
-        </form>
+  </form>
   </main>
   <footer class="footer mt-auto py-3 bg-light">
     <div class="container">
@@ -106,5 +108,4 @@ include "./scripts/php_includes/data-collector.php";
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
 </body>
-
 </html>
