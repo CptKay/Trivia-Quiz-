@@ -1,115 +1,119 @@
-.bd-placeholder-img {
-    font-size: 1.125rem;
-    text-anchor: middle;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    user-select: none;
-  }
-
-  @media (min-width: 768px) {
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-  }
-
-  .b-example-divider {
-    height: 3rem;
-    background-color: rgba(0, 0, 0, .1);
-    border: solid rgba(0, 0, 0, .15);
-    border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-  }
-
-  .b-example-vr {
-    flex-shrink: 0;
-    width: 1.5rem;
-    height: 100vh;
-  }
-
-  .bi {
-    vertical-align: -.125em;
-    fill: currentColor;
-  }
-
-  .nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-  }
-
-  .nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-  }
-  .md {
-    justify-content: center;
-    width: auto;
-    }
-
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
-
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-
-
-  img {
-    width: 100%;
-    height: auto; 
+body {
+  background-color:#D7FDEC;
   
-  }
+}
+.container{
+  background-color: #D7FDEC;
+  color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 500px;
+}
+.containerq{
+  
+  background-color: #578c74;
+  color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  max-width: 500px;
+  
+}
+
+
+.container > p{
+  
+  font-weight:bolder;
+  font-optical-sizing:auto;
+}
+.question{
+  width: auto;
+  
+}
+.options{
+  position: relative;
+  padding-left: 40px;
+}
+#options label{
+  display: block;
+  /* margin-bottom: 15px; the margin between he anwser*/
+  font-size: 2vh;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.options input{
+  opacity: 0;
+}
+.checkmark {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #555;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+.options input:checked ~ .checkmark:after {
+  display: block;
+}
+.options .checkmark:after{
+  content: "";
+width: 5vh;
+  height: 5vh;
+  display: block;
+background: white;
+  position: absolute;
+  top: 50%;
+left: 50%;
+  border-radius: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: 300ms ease-in-out 0s;
+}
+.options input[type="radio"]:checked ~ .checkmark{
+  background: #21bf73;
+  transition: 300ms ease-in-out 0s;
+}
+.options input[type="radio"]:checked ~ .checkmark:after{
+  transform: translate(-50%,-50%) scale(1);
+}
+
+.btn-primary{
+  background-color: #555;
+  color: #ddd;
+  border: 1px solid #ddd;
+}
+.btn-primary:hover{
+  background-color: #21bf73;
+  border: 1px solid #21bf73;
+}
+.btn-success{
+  padding: 5px 25px;
+  background-color: #21bf73;
+}
+@media(max-width:576px){
+  .question{
+      width: 100%;
+      /* word-spacing: 2px; word spacing from question*/
+  } 
+}
+@media screen and (max-width: 480px) {
+
+  .optionalstuff img {display:none;}
+
+}
+    img {
+      display: block;
+      max-width: 50vh;
+      max-height: 50vh;
+    }
+    .optionalstuff {
+      
+      max-width: 40vh;
+      max-height: 40vh;
+
+    }
 
  
    
