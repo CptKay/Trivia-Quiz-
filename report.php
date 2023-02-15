@@ -87,6 +87,10 @@ if ($totalPoints_100 <= 30) {
     <h2 class="mt-5">You made <?php include "./$result"; ?></h1>
         </b></div>
       <?php echo '<img class="optionalstuff" src="/images/' . $question["image"] . '" ">'; ?>
+      <div class="col-md-12 text-center">
+      <br>
+              <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Restart</a>
+        </div>
       </main>
   <footer class="fixed-bottom footer mt-0 py-3 bg-light">
     <div class="container-fluid">
@@ -94,7 +98,7 @@ if ($totalPoints_100 <= 30) {
         <?php echo $quiz["topic"] ?> Questions
       </span>
     </div>
-  </footer>
+      </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
     crossorigin="anonymous"></script>
