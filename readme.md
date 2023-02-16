@@ -104,5 +104,7 @@ Thank You Amir
     calculation not finished
     animation mobile version not finished
 
-26.
+26.(Mike)Added text animation and centered the input field
+    (Jules)Worked on the Read Me
+    (Samy and Amir) Worked on the Calculation method
 
