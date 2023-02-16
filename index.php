@@ -19,21 +19,21 @@ include "./scripts/php_includes/data-collector.php";
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <div class="container-fluid">
-        <h5 class="mt-0 text-light">Trivia Quiz</h5>
+        <h5 class="mt-0 mb-0 text-light">Trivia Quiz</h5>
         <div class="collapse navbar-collapse" id="navbarCollapse">
         </div>
       </div>
     </nav>
   </header>
   <!-- Begin page content -->
-  <main class="container d-flex mt-4">
+  <main class="container d-flex mt-3">
     
     <div class="col-md-12">
-      <br>
+     
         <form onsubmit="return validateSelection()" id="quiz" action="questions.php" method="post" class="md">
         <div class="col-12 text-center">
           <h4>Category</h4>
-          <br>
+        
           <select style="width:170px;" class="form-select text-center dropdown "
             aria-label="Select category" name="topic">
             <option selected>Select category</option>
@@ -55,19 +55,17 @@ include "./scripts/php_includes/data-collector.php";
           <br>
           <!-- Anzahl Fragen-->
           <h4>
-            <label style="margin-top:20px;" for="questionNum" class="form-label"> Number of questions</label>
+            <label for="questionNum" class="form-label"> Number of questions</label>
           </h4>
           <div>
             <input style="width:170px;" type="number"
-              class="mt-3 form-select text-center dropdown" id="questionNum"
+              class="mt-2 form-select text-center dropdown" id="questionNum"
               name="questionNum" min="5" max="40" value="10">
             <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
             <input type="hidden" id="indexStep" name="indexStep" value="1">
           </div>
           </div>
-          
-          <br>
-            <figure>
+                      <figure>
               <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block" alt="Quiz Starting image">
               <figcaption class="figure-caption text-center">
                 <div class="col-md-12 text-center">
