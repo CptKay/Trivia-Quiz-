@@ -89,9 +89,9 @@ if ($totalPoints_100 <= 30) {
     <h2 class="mt-5 text-center">You made <?php include "./$result"; ?></h1>
         </b></div>
       <?php 
-      
-      $result = fetchresultById($id, $dbConn);
-      echo '<img class="optionalstuff" src="/images/' . $result["value"] . '" ">'; ?>
+
+      $assets = fetchresultById($id, $dbConn);
+      echo '<img class="optionalstuff" src="/images/' . $assets["value"] . '" ">'; ?>
       <div class="col-md-12 text-center">
       <br>
               <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Restart</a>
