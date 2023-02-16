@@ -8,6 +8,7 @@ Thank You Amir
 2.(mike created the Trello)Link:https://trello.com/b/tvXhzW8c
 
 3.(Sam created the GitHub)link:https://github.com/CptKay/Trivia-Quiz-Plus
+    Figma Link:https://www.figma.com/file/6vtYnksk6UeUOAWCni2dJp/Quiz?node-id=0%3A1&t=Qs0Rr9dTBc07zqYp-1
 
 4.(Jules change the CSS)
 
