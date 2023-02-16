@@ -26,7 +26,11 @@ include "./scripts/php_includes/data-collector.php";
   <!-- Begin page content -->
     <div class="col-md-12 text-center">
       <br>
-      <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block" alt="Quiz Starting image">
+      <?php 
+      $id = 5;
+      $result = fetchresultById($id, $dbConn);
+      echo '<img class="rounded mx-auto d-block" alt="Quiz Starting image" src="/Icons/' . $result["value"] . '" ">'; ?>
+      <!-- <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block" alt="Quiz Starting image"> -->
          <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Start</a>
         </div>
   <footer class="fixed-bottom mt-auto py-3 bg-light">

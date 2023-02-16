@@ -88,16 +88,15 @@ if ($totalPoints_100 <= 30) {
     <main class="question flex-shrink-0">
     <h2 class="mt-5 text-center">You made <?php include "./$result"; ?></h1>
         </b></div>
-      <?php $id=6;
- $result = fetchresultById($id, $dbConn);
+      <?php 
+      
+      $result = fetchresultById($id, $dbConn);
       echo '<img class="optionalstuff" src="/images/' . $result["value"] . '" ">'; ?>
       <div class="col-md-12 text-center">
       <br>
               <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Restart</a>
         </div>
-        <audio autoplay>
-  <source src='/Sounds/applause.mp3' type='audio/mpeg'>
-</audio>
+        
       </main>
   <footer class="fixed-bottom footer mt-0 py-3 bg-light">
     <div class="container-fluid">
