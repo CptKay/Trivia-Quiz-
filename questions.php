@@ -14,6 +14,7 @@
   <!-- Custom styles for this template -->
   <title>QQA</title>
   <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -65,7 +66,7 @@
               // print html checkbox for each answer  
               echo '<div class="align">';
               echo '<div class="form-check">';
-              echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]'>";
+              echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]' onclick='checkBoxLimit()'>";
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
               echo '</div>';
             }
@@ -81,29 +82,6 @@
             }
           }
           ?>
-
-          <!-- Limit checkbox selection -->
-
-                   <script type="text/javascript">
-function checkBoxLimit() {
-  var checkBoxGroup = document.getElementsByName("multiple-choice[]");
-  var limit = 2;
-for(var i=0; i < checkBoxGroup.length; i++){
-  checkBoxGroup[i].onclick = function() {
-			var checkedcount = 0;
-        for (var i = 0; i < checkBoxGroup.length; i++) {
-          checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
-        }
-        if (checkedcount > limit) {
-          console.log("You can select maximum of " + limit + " checkboxes.");
-				alert("You can select maximum of " + limit + " checkboxes.");						
-				this.checked = false;
-			}
-		}
-	}
-}
-</script>
-
           <div class="d-flex align-items-center pt-3">
             <div id="prev">
               <div class="hidden">
