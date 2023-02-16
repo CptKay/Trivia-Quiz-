@@ -51,7 +51,10 @@
           <?php echo $quiz["questionNum"]; ?> :
           <?php echo $question["question_text"]; ?>
         </b></div>
+        
+        
       <?php echo '<img class="optionalstuff" src="/images/' . $question["image"] . '" ">'; ?>
+     
       <h7 class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
         <form style="width:auto;" class="form-select containerq" action="<?php echo $link; ?>" method="post">
           <?php
