@@ -34,7 +34,7 @@ include "./scripts/php_includes/data-collector.php";
         <div class="col-12 text-center">
           <h4>Category</h4>
           <br>
-          <select style="width:170px;" class="form-select text-center position-absolute start-50 translate-middle"
+          <select style="width:170px;" class="form-select text-center dropdown "
             aria-label="Select category" name="topic">
             <option selected>Select category</option>
             <?
@@ -59,7 +59,7 @@ include "./scripts/php_includes/data-collector.php";
           </h4>
           <div>
             <input style="width:170px;" type="number"
-              class="mt-3 form-select text-center position-absolute start-50 translate-middle" id="questionNum"
+              class="mt-3 form-select text-center dropdown" id="questionNum"
               name="questionNum" min="5" max="40" value="10">
             <input type="hidden" id="questLastInd" name="questLastInd" value="-1">
             <input type="hidden" id="indexStep" name="indexStep" value="1">

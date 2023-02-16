@@ -86,7 +86,7 @@ if ($totalPoints_100 <= 30) {
     <main class="containerq flex-shrink-0">
     <div class="container mt-2 mt-sm-5 my-1">
     <main class="question flex-shrink-0">
-    <h2 class="mt-5 text-center">You made <?php include "./$result"; ?></h1>
+    <h2 class="mt-5 text-center you-made">You made <?php include "./$result"; ?></h2>
         </b></div>
       <?php 
 
