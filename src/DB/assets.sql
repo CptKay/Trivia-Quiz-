@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: mysql
--- Generation Time: Feb 15, 2023 at 03:21 PM
+-- Generation Time: Feb 16, 2023 at 08:02 AM
 -- Server version: 8.0.31
 -- PHP Version: 8.0.19
 
@@ -48,7 +48,14 @@ INSERT INTO `assets` (`id`, `type`, `value`, `description`) VALUES
 (7, 'IMAGE', 'MORETHAN50.gif', 'Gif animation result 50 or more'),
 (8, 'IMAGE', 'MORETHAN70.gif', 'Gif animation result 70 or more'),
 (9, 'IMAGE', 'MORETHAN90.gif', 'Gif animation result 90 or more'),
-(10, 'IMAGE', '', '');
+(10, 'TEXT', 'Your answer', 'text on each question page'),
+(11, 'TEXT', 'You made', 'End result page text'),
+(12, 'TEXT', 'of', 'End result page text'),
+(13, 'TEXT', 'points! or', 'End result page text'),
+(14, 'TEXT', '%', 'End result page text'),
+(15, 'TEXT', 'Restart', 'End result page text'),
+(16, 'TEXT', 'Result', 'End result page text'),
+(17, 'TEXT', ':', 'Text from end page');
 
 --
 -- Indexes for dumped tables
@@ -68,7 +75,7 @@ ALTER TABLE `assets`
 -- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
