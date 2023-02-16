@@ -43,13 +43,16 @@
   </nav>
 </header>
     <!-- Begin page content -->
-<main class="flex-shrink-0">
-    <div class="container h-50">
-       <figure>
-  <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image">
-  <figcaption class="figure-caption text-center"></figcaption>
-</figure>
-</div>
+    <main class="flex-shrink-0">
+  <div class="container h-50">
+    <figure>
+      <img src="Icons/LOGOGO.png" class="rounded mx-auto d-block text-center" alt="Quiz Starting image" style="width: 100%; height: 100%;">
+      <figcaption class="figure-caption text-center"></figcaption>
+    </figure>
+    <div class="text-center">
+      <a type="button" class="btn btn-primary btn-lg mt-3" href="index.php">Start</a>
+    </div>
+  </div>
 </main>
 <div class="col-md-12 text-center">
             <a type="button" class="btn btn-primary btn-lg mb-5" href="index.php">Start</a>
