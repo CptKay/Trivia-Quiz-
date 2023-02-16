@@ -55,7 +55,7 @@
       <h7 class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">Your answer:</h7>
         <form style="width:auto;" class="form-select containerq" action="<?php echo $link; ?>" method="post">
           <?php
-          $correct = $answer["is_correct"] = 1;
+          $correct = $answer["is_correct"] = 0;
           // prepare and execute the select statements
           $selectAnswers = $dbConn->prepare("select * from answers where question_id = ?");
           $selectAnswers->bindValue(1, $question["id"]);
@@ -95,7 +95,7 @@
           </div>
       </div>
   </div>
-  <!-- <?php prettyPrint($_SESSION, "Test") ?> -->
+  <?php prettyPrint($_SESSION, "Test") ?>
   </div>
   </form>
   </main>
