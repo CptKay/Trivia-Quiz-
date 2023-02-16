@@ -1,131 +1,9 @@
 <?php
    include "./scripts/php_includes/data-collector.php";
 ?>
-<!doctype html>
-<html lang="en" class="h-100">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.104.2">
-    <title>Trivia Quiz - Results</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/sticky-footer-navbar/">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <link href="css/style.css">
-    <!-- Favicons -->
-<meta name="theme-color" content="#712cf9">
-    <!-- Custom styles for this template -->
-    <link href="/css/sticky-footer-navbar.css" rel="stylesheet">
-     </head>
-  <body class="d-flex flex-column h-100 bg-info">
-<header>
-  <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-    <a class="navbar-brand" href="index.php"><h5 class="mt-0 text-light">Restart Trivia Quiz</h5></a>
-    <div class="collapse navbar-collapse" id="navbarCollapse">
-      </div>
-    </div>
-  </nav>
-</header>
-
 <?php
 
 $points = 0;
-$totalPoints = 0;
-
-// single choice only:
-/* foreach ($_SESSION as $name => $correct) {
-    if (str_contains($name, 'question-')) {
-
-        if (isset($correct["single-choice"])) {
-            $points = intval($correct["single-choice"]); */
-            // $totalPoints = $totalPoints + $points;
-/*         }
-    }
-} */
-
-// multiple choice doesn't work
-/* foreach ($_SESSION as $name => $correct) {
-  if (str_contains($name, 'question-')) {
-      if (isset($correct["multiple-choice"])) {
-          $answer = $correct["multiple-choice"];
-          $selected = $_POST[$name]["multiple-choice"];
-          if (is_array($selected)) {
-              sort($selected);
-              sort($answer);
-              if ($selected == $answer) {
-                  $points = count($answer);
-                  $totalPoints += $points;
-              }
-          }
-      }
-  }
-} */
-
-// single,- multiple choice test only works on HISTORY:
-/* foreach ($_SESSION as $name => $correct) {
-  if (str_contains($name, 'question-')) {
-      if (isset($correct["single-choice"])) { */
-          // $points = 0;
-          // $points = intval($correct["single-choice"]);
-          /* $answer = $correct["single-choice"];
-          $selected = $_POST[$name]["single-choice"] ?? '';
-          if ($selected === $answer) {
-              $points = 1;
-          }
-          $totalPoints += $points; */
-      // } elseif (isset($correct["multiple-choice"])) {
-          // $points = 0;
- /*          $points = intval($correct["multiple-choice"]);
-          $answer = $correct["multiple-choice"];
-          $selected = $_SESSION[$name]["multiple-choice"] ?? [];
-          if (is_array($selected)) {
-              sort($selected);
-              sort($answer);
-              if ($selected == $answer) {
-                  $points = count($answer);
-              }
-          }
-          $totalPoints += $points;
-      }
-  }
-} */
-
-// counts every selection
-/* $totalPoints = 0;
-$maxPoints = $_SESSION["quiz"]["questionNum"];
-
-foreach ($_SESSION as $name => $correct) {
-  if (str_contains($name, 'question-')) {
-      if (isset($correct["single-choice"])) {
-          $points = 0;
-          $answer = $correct["single-choice"];
-          $selected = $_SESSION[$name]["single-choice"] ?? '';
-          if ($selected === $answer) {
-              $points = 1;
-          }
-          $totalPoints += $points;
-      } elseif (isset($correct["multiple-choice"])) {
-          $points = 0;
-          $answer = $correct["multiple-choice"];
-          $selected = $_SESSION[$name]["multiple-choice"] ?? [];
-          if (is_array($selected)) {
-              sort($selected);
-              sort($answer);
-              if ($selected == $answer) {
-                  $points = count($answer);
-              }
-          }
-          $totalPoints += $points;
-      }
-  }
-}
-
-$totalPoints = min($totalPoints, $maxPoints); */
-
-// Seems correct:
 $totalPoints = 0;
 $maxPoints = $_SESSION["quiz"]["questionNum"];
 
@@ -156,14 +34,8 @@ foreach ($_SESSION as $name => $correct) {
 }
 
 $totalPoints = min($totalPoints, $maxPoints);
-
-
-
-
 $maxPoints = $_SESSION["quiz"]["questionNum"];
-
 $totalPoints_100 = round(($totalPoints / $maxPoints) *100);
-
 if ($totalPoints_100 <= 30) {
   $result = "result_30.php";
 } elseif ($totalPoints_100 > 30 && $totalPoints_100 <= 60) {
@@ -173,39 +45,68 @@ if ($totalPoints_100 <= 30) {
 } else {
   $result = "result_100.php";
 };
+
+
     ?>
+<!doctype html>
 
-<!-- Begin page content -->
+<html lang="en">
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Custom styles for this template -->
+  <title>QQA</title>
+  <link rel="stylesheet" href="css/style.css">
 
-<main class="flex-shrink-0">
+</head>
 
-<div class="row align-items-center">
-    <div class="col">
-    <h1 class="mt-5">Result:</h1>
-    </div>
-    <div class="col">
-    <h2 class="mt-5">You made <?php include "./$result"; ?></h1>
-    </div>
-    <div class="col">
-     
-    </div>
-  </div>
-  <div class="col">
+<body class="d-flex flex-column h-100">
+  <header>
+  
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.php">
+          <h5 class="mt-0 text-light">Restart Trivia Quiz</h5>
+        </a>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
         </div>
-    <div class="col">
+      </div>
+
+    </nav>
+  </header>
+
+  <br>
+  <!-- Begin page content -->
+  <div class="container mt-2 mt-sm-5 my-1">
+    <main class="containerq flex-shrink-0">
+    <div class="container mt-2 mt-sm-5 my-1">
+    <main class="question flex-shrink-0">
+    <h2 class="mt-5 text-center">You made <?php include "./$result"; ?></h1>
+        </b></div>
+      <?php 
+
+      $assets = fetchresultById($id, $dbConn);
+      echo '<img class="optionalstuff" src="/images/' . $assets["value"] . '" ">'; ?>
+      <div class="col-md-12 text-center">
+      <br>
+              <a type="button" class="btn btn-primary btn-lg mt-0" href="index.php">Restart</a>
         </div>
-    <div class="col">
-      <img src="images/logo_quiz.svg" class="img-fluid" alt="logo">
+        
+      </main>
+  <footer class="fixed-bottom footer mt-0 py-3 bg-light">
+    <div class="container-fluid">
+      <span class="text-muted">Trivia Quiz
+        <?php echo $quiz["topic"] ?> Questions
+      </span>
     </div>
-  </div>
-  </div>
-</main>
-<footer class="footer mt-auto py-3 bg-light">
-  <div class="container">
-    <span class="text-muted">Trivia Quiz <?php echo $quiz["topic"] ?> results</span>
-  </div>
-</footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  </body>
+      </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
 </html>

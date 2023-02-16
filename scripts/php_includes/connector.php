@@ -52,6 +52,17 @@ function fetchAnswerById($id, $dbConn) {
   return $row;
 };
 
+function fetchresultById($id, $dbConn) {
+
+  $sqlQuery=$dbConn->query("SELECT value,type FROM `assets` WHERE `id` = $id");
+    $row = $sqlQuery->fetch(PDO::FETCH_ASSOC);
+   
+
+   // print_r($row);
+
+  return $row;
+};
+
 function fetchQuestionIdSeq($topic, $questionNum, $dbConn) {
   $query = "SELECT `id` FROM `questions` WHERE `topic` = '$topic' ORDER BY RAND() LIMIT $questionNum";
 
