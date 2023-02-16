@@ -21,7 +21,10 @@ body {
   
 }
 
-
+[type="checkbox"]
+{
+    vertical-align:middle;
+}
 .container > p{
   
   font-weight:bolder;
@@ -98,11 +101,11 @@ left: 50%;
       /* word-spacing: 2px; word spacing from question*/
   } 
 }
-@media screen and (max-width: 480px) {
-
-  .optionalstuff img {display:none;}
-
-}
+@media (max-width: 40em) {
+  .optionalstuff {
+  display: none;
+  }
+  }
     img {
       display: block;
       max-width: 50vh;

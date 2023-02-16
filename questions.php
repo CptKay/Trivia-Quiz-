@@ -39,12 +39,12 @@
 
     </nav>
   </header>
-  <br>
+
   <br>
   <!-- Begin page content -->
-  <div class="container mt-sm-5 my-1">
+  <div class="container mt-2 mt-sm-5 my-1">
     <main class="question flex-shrink-0">
-      <div class="py-2 h5"><b> Question
+      <div class="mt-2 py-2 h5"><b> Question
           <?php echo ($currentQuestionIndex + 1)
             ?> of
           <?php echo $quiz["questionNum"]; ?> :
@@ -62,18 +62,18 @@
           if ($question["type"] == "MULTIPLE") {
             // display checkboxes buttons for answers to questions with MULTIPLE answers
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
-              // print html checkbox for each answer              
-              echo '<div class="row justify-content-center">';
-              echo '<div class="form-check" id="ckb">';                         
-               echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]' onclick='checkBoxLimit()';>"; 
-               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';         
-
-           echo '</div>';
+              // print html checkbox for each answer  
+              echo '<div class="align">';
+              echo '<div class="form-check">';
+              echo "<input class='form-check-input' type='checkbox'  name='multiple-choice[]' id='$answer[id]' value='$answer[is_correct]'>";
+              echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
+              echo '</div>';
             }
           } else {
             // display radio buttons for answers to questions with one SINGLE answer
             while ($answer = $selectAnswers->fetch(PDO::FETCH_ASSOC)) {
               // print html radio button for each answer   
+              echo '<div class="">';
               echo '<div class="form-check">';
               echo "<input class='form-check-input' type='radio' name='single-choice' id= '$answer[id]' value='$answer[is_correct]' >";
               echo '<label class="form-check-label">' . $answer["answers"] . '</label><br>';
@@ -121,8 +121,8 @@ for(var i=0; i < checkBoxGroup.length; i++){
   </div>
   </form>
   </main>
-  <footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
+  <footer class="fixed-bottom footer mt-0 py-3 bg-light">
+    <div class="container-fluid">
       <span class="text-muted">Trivia Quiz
         <?php echo $quiz["topic"] ?> Questions
       </span>
