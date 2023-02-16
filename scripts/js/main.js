@@ -1,23 +1,3 @@
-function validateForm() {
-    // Check if a radio button or checkbox is selected
-    var selected = false;
-    var radioButtons = document.getElementsByName("single-choice");
-    for (var i = 0; i < radioButtons.length; i++) {
-      if (radioButtons[i].checked) {
-        selected = true;
-        break;
-      }
-    }
-  
-    // If no radio button or checkbox is selected, display an alert
-    if (!selected) {
-      alert("Please select an answer");
-      return false;
-    }
-    
-    return true;
-  }
-
 // Alert if no category is selected
 
   function validateSelection() {
@@ -27,4 +7,22 @@ function validateForm() {
       return false;
     }
     return true;
+  }
+   /* Limit checkbox selection */ 
+  function checkBoxLimit() {
+    var checkBoxGroup = document.getElementsByName("multiple-choice[]");
+    var limit = 2;
+  for(var i=0; i < checkBoxGroup.length; i++){
+    checkBoxGroup[i].onclick = function() {
+        var checkedcount = 0;
+          for (var i = 0; i < checkBoxGroup.length; i++) {
+            checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+          }
+          if (checkedcount > limit) {
+            console.log("You can select maximum of " + limit + " checkboxes.");
+          alert("You can select maximum of " + limit + " checkboxes.");						
+          this.checked = false;
+        }
+      }
+    }
   }
