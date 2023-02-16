@@ -1,5 +1,8 @@
 QQA (Quiz Quest Alliance)
 
+During the Whole Project Amir brought us "Gipfelie" & Coffe.
+Thank You Amir
+
 1.(Amir created the team contract)link:documents/QQA_Team_Contract.pdf
 
 2.(mike created the Trello)Link:https://trello.com/b/tvXhzW8c
