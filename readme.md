@@ -10,6 +10,8 @@ Thank You Amir
 3.(Sam created the GitHub)link:https://github.com/CptKay/Trivia-Quiz-Plus
     Figma Link:https://www.figma.com/file/6vtYnksk6UeUOAWCni2dJp/Quiz?node-id=0%3A1&t=Qs0Rr9dTBc07zqYp-1
 
+3.5 Presentation Link:https://docs.google.com/presentation/d/1tq8bXnCu6Qf9ilIf4woSy2ld_yjnFEUc/edit?usp=share_link&ouid=114332089750682378220&rtpof=true&sd=true
+
 4.(Jules change the CSS)
 
 5.(Sam Jules) worked on the function and database
